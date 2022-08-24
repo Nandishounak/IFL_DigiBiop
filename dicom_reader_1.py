@@ -15,6 +15,7 @@ path= pathlib.PurePosixPath('/mnt/projects/DeepProstateDB/Data/14/0001330324/DIC
 folder = '/mnt/HDD1/shounak/Biopsy_output/0002298177'
 meta = join_tree(folder, verbose=2)
 meta.head[2]
+
 ds = dicom.dcmread(path)
 file = FileSet(ds)
 print(file)
