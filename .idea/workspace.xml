@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b1abcd8f-b121-4cdd-a4bf-e9164258fb2b" name="Changes" comment="the patient database has been converted into list, now the matching of both the lists is reqd.">
+    <list default="true" id="b1abcd8f-b121-4cdd-a4bf-e9164258fb2b" name="Changes" comment="the patient name can be extracted by search with the patient IDs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/csv_reader.py" beforeDir="false" afterPath="$PROJECT_DIR$/csv_reader.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/patientIDextractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/patientIDextractor.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -173,7 +172,7 @@
       <updated>1661432872962</updated>
       <workItem from="1661432875759" duration="9956000" />
       <workItem from="1661849260789" duration="5766000" />
-      <workItem from="1661855128476" duration="16596000" />
+      <workItem from="1661855128476" duration="19193000" />
     </task>
     <task id="LOCAL-00001" summary="separate functions created">
       <created>1661855058189</created>
@@ -189,7 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661863343603</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="the patient name can be extracted by search with the patient IDs">
+      <created>1661875105685</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1661875105685</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,7 +215,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="separate functions created" />
     <MESSAGE value="the patient database has been converted into list, now the matching of both the lists is reqd." />
-    <option name="LAST_COMMIT_MESSAGE" value="the patient database has been converted into list, now the matching of both the lists is reqd." />
+    <MESSAGE value="the patient name can be extracted by search with the patient IDs" />
+    <option name="LAST_COMMIT_MESSAGE" value="the patient name can be extracted by search with the patient IDs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -225,7 +232,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/IFL_DigiBiop$folder_reader.coverage" NAME="folder_reader Coverage Results" MODIFIED="1661444153900" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/IFL_DigiBiop$folder_patids_to_csv__1_.coverage" NAME="folder_patids_to_csv (1) Coverage Results" MODIFIED="1661856644727" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/IFL_DigiBiop$patientIDextractor__1_.coverage" NAME="patientIDextractor (1) Coverage Results" MODIFIED="1661873408371" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/IFL_DigiBiop$patientIDextractor__1_.coverage" NAME="patientIDextractor (1) Coverage Results" MODIFIED="1661877305376" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/IFL_DigiBiop$patientIDextractor.coverage" NAME="patientIDextractor Coverage Results" MODIFIED="1661853425972" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
   </component>
 </project>
