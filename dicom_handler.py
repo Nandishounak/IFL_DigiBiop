@@ -34,12 +34,13 @@ class dicom_handler:
             folder_patient_name = str(str_match)
             if not str_match:
                 ls = str(ls[i])
+                print("ls", ls)
                 return ls
             elif np.shape(str_match) != (0,):
                 print('str_match', str_match)
                 print(str_match[0][0], str_match[0][1], str_match[0][2])
                 folder_patient_name = str_match[0][0] + '_' + str_match[0][1] + str_match[0][2]
-            return folder_patient_name
+                return folder_patient_name
 
     def dicom(self, unsortedList, patientIDlist, patientnameslist, dst):
         for dicom_loc in unsortedList:

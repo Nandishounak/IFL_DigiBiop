@@ -8,9 +8,8 @@ def folder_tree(dst, folder_patient_name, dicom_loc, fileName, patientID, studyD
     print("folder tree running now")
     ds = dicom.read_file(dicom_loc, force=True)
     if os.path.exists(os.path.join(dst, folder_patient_name, "na")):
-        print("I am returning")
-        return
-    elif not os.path.exists(os.path.join(dst, folder_patient_name)):
+        pass
+    if not os.path.exists(os.path.join(dst, folder_patient_name)):
         os.makedirs(os.path.join(dst, folder_patient_name))
 
     if not os.path.exists(os.path.join(dst, patientID)):
