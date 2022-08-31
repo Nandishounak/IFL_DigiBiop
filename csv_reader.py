@@ -12,5 +12,5 @@ def csv_read(path):
             # print(type(row))
             mycsvlist.append(row)
 
-    print(mycsvlist, '\n', mycsvlist)
+    print(mycsvlist, '\n')
     return mycsvlist
