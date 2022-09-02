@@ -23,31 +23,51 @@ class dicom_handler:
 
     def patient_names_extractor(self,patientIDlist, patientnameslist, dst):
         # counter which searches the patient names for their respective IDs
-        ls = patientIDlist
-
+        list=[]
+        matches=[]
         for i in range(len(patientIDlist)):
-            print("patient_names_extractor running")
-            # for i in range(len(patientIDlist)):
-            print("patient_names_extractor running inside loop")
 
+            ls = patientIDlist[i]
+
+            # print("patient_names_extractor running", "\n", "length of patientIDlist=", len(ls), '\n', "length of patientnameslist=", len(patientnameslist))
+            # # for i in range(len(patientIDlist)):
+            # print("patient_names_extractor running inside loop")
+            #
             str_match = [s for s in patientnameslist if ls in s]
-            folder_patient_name = str(str_match)
-            if not str_match:
-                ls = str(ls[i])
-                print("ls", ls)
-                return ls
-            elif np.shape(str_match) != (0,):
-                print('str_match', str_match)
-                print(str_match[0][0], str_match[0][1], str_match[0][2])
-                folder_patient_name = str_match[0][0] + '_' + str_match[0][1] + str_match[0][2]
-                return folder_patient_name
+            # # folder_patient_name = str(str_match)
+            # print("str_match", str_match)
+
+            if str_match!= []:
+                print("str_match found=", str_match, "\n")
+                matches.append(str_match)
+        # return str_match
+
+
+            list.append(patientIDlist[i])
+        print("list=", list)
+        print("no. of matches=", len(matches))
+
+    def str_match_handler(self, patientIDlist, patientnameslist, dst):
+            str_match = self.patient_names_extractor(patientIDlist, patientnameslist, dst)
+            print(np.shape(str_match))
+            # if np.shape(str_match) != (0,):
+            #     print('str_match', str_match)
+            #     print(str_match[0][0], str_match[0][1], str_match[0][2])
+            #     folder_patient_name = str_match[0][0] + '_' + str_match[0][1] + str_match[0][2]
+            #     return folder_patient_name
+            # # else:
+            #     ls = str(patientIDlist[i])
+            #     print("ls", ls)
+            #
+            #
+            # return ls
 
     def dicom(self, unsortedList, patientIDlist, patientnameslist, dst):
         for dicom_loc in unsortedList:
             # read the file
             print("dicom running")
             ds = dicom.read_file(dicom_loc, force=True)
-            folder_patient_name = self.patient_names_extractor(patientIDlist, patientnameslist, dst)
+            folder_patient_name = self.str_match_handler(patientIDlist, patientnameslist, dst)
             # get patient, study, and series information
             patientID = clean_text(ds.get("PatientID", "NA"))
             studyDate = clean_text(ds.get("StudyDate", "NA"))
