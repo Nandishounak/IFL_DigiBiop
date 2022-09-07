@@ -14,6 +14,8 @@ def Extract(lst):
 
 def pat_id_extractor(path):
     pat_id_list = []
+    store_dir_patids = []
+
     for file in os.listdir(path):
         d = os.path.join(path, file)
         if os.path.isdir(d):
@@ -22,7 +24,9 @@ def pat_id_extractor(path):
             # print(x[-1])  #returns the patient IDs
             pat_id_list.append(x[-1])
     print("there are",len(pat_id_list), "ids in this source path")
-    return pat_id_list
+    store_dir_patids = glob.glob(path + '\\*')
+
+    return pat_id_list, store_dir_patids
 
 
 # to flatten list in a list into a single list
@@ -45,7 +49,7 @@ if __name__ == '__main__':
     given_list = "C:\\Users\\shoun\\OneDrive - TUM\\Projects\\outputs\\digibiop\\patientID_names_Database_unsorted.csv" #path to the database of the patient names
 
     # patientIDlist = pat_id_to_csv(source)  #not reqd at the moment
-    patientIDlist = pat_id_extractor(source)
+    patientIDlist, patientID_dir = pat_id_extractor(source)
     patientnameslist = csv_read(given_list)  # reads the data from the patient database csv and stores in a variable list
 
     assert type(patientnameslist) == type(patientIDlist)
@@ -55,17 +59,8 @@ if __name__ == '__main__':
     print("patient ID list in the source folder",'\n', patientIDlist, '\n', type(patientIDlist))
     print("EXTRACT IDs", Extract(patientnameslist), "\n","There are ", len(Extract(patientnameslist)), "patient IDs in the database")
 
-    # counter which searches the patient names for their respective IDs
-    # for i in range(len(patientIDlist)):
-    #     ls = patientIDlist[i]
-    #
-    #     str_match = [s for s in patientnameslist if ls in s]
-    #     if np.shape(str_match)!= (0,):
-    #         print('str_match', str_match)
-    #         print(str_match[0][0], str_match[0][1], str_match[0][2])
-    #########################################
 
     x = dicom_handler() #initiate the class dicom_handler()
     unsortedList = x.unsortedlist(source, destination)
     # print('unsortedList', unsortedList)
-    x.dicom(unsortedList, patientIDlist, patientnameslist, destination)
+    x.dicom(unsortedList, patientIDlist, patientID_dir, patientnameslist, source, destination)

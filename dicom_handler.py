@@ -4,7 +4,7 @@ from save_folder_tree import *
 from clean_text import *
 import numpy as np
 from pydicom.fileset import FileSet
-
+import glob
 
 
 class dicom_handler:
@@ -24,9 +24,10 @@ class dicom_handler:
                 #         if ".file" in file:# exclude non-dicoms, good for messy folders
                 unsortedList.append(os.path.join(root, file))
 
+
         print('%s files found.' % len(unsortedList))
         # print("unsorted list-->", unsortedList)
-        print("directory list-->", directorylist)
+        # print("directory list-->", directorylist)
         return unsortedList
 
     def patient_names_extractor(self,patientIDlist, patientnameslist, dst):
@@ -67,6 +68,7 @@ class dicom_handler:
             if np.shape(str_match) != (0,):
                 print('type of str_match', type(str_match))
                 print("folder name",str_match[0][0], str_match[0][1], str_match[0][2])
+                print("patientid-->", str_match[0][4] )
                 # str_match = str_match[idx:, :]
                 # folder_patient_name = str_match[0][0] + '_' + str_match[0][1] + str_match[0][2]
                 # print("foldername=", folder_patient_name)
@@ -81,13 +83,24 @@ class dicom_handler:
 
             return ls
 
-    def dicom(self, unsortedList, patientIDlist, patientnameslist, dst):
+    def comparator(self, folder_patient_name, matched_patient_id, src):
+        matchid=[]
+        for i in range(len(matchid)):
+            matchid = matched_patient_id[i]
+
+            capture_dir = [patid for patid in src if matchid in src]
+            print("captured pat id", capture_dir)
+            return capture_dir
+
+    def dicom(self, unsortedList, patientIDlist, patientID_dir, patientnameslist, src, dst):
         # idx = 0
         folder_patient_name_list = self.str_match_handler(patientIDlist, patientnameslist, dst)
         print("folder_patient_name==>", folder_patient_name_list)
         for patient_name in folder_patient_name_list:
             folder_patient_name = patient_name[0] + '_' + patient_name[1] + patient_name[2]
-            print("foldername=", folder_patient_name)
+            matched_patient_id = patient_name[4]
+            print("foldername and matched patiient id=", folder_patient_name, matched_patient_id)
+            self.comparator(folder_patient_name, matched_patient_id, src)
 
             for dicom_loc in unsortedList:
                 # read the file
