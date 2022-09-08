@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b1abcd8f-b121-4cdd-a4bf-e9164258fb2b" name="Changes" comment="issues not yet resolved; I need to read to file path of teh dicom directory and match with the unsortedlist then check if condition so that I can call the foldertree&#10;&#10;07-09- the comparator needs to be fixed">
+      <change afterPath="$PROJECT_DIR$/search_patid_in_dir.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dicomreader_test.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Dicomreader_test.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dicom_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/dicom_handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patientIDextractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/patientIDextractor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/save_folder_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/save_folder_tree.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="main" />
+  </component>
+  <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2DqiAatV76ErJysfT7dWxvLQais" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/shoun/PycharmProjects/pythonProject/IFL_DigiBiop"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "Python"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\shoun\PycharmProjects\pythonProject\IFL_DigiBiop" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.patientIDextractor (1)">
+    <configuration name="dicom_handler" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="IFL_DigiBiop" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dicom_handler.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="folder_patids_to_csv (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="IFL_DigiBiop" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/folder_patids_to_csv.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="folder_patids_to_csv" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="IFL_DigiBiop" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\shoun\PycharmProjects\pythonProject\IFL_DigiBiop\folder_patids_to_csv.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="patientIDextractor (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="IFL_DigiBiop" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/patientIDextractor.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="patientIDextractor" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="IFL_DigiBiop" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/patientIDextractor.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.patientIDextractor (1)" />
+        <item itemvalue="Python.dicom_handler" />
+        <item itemvalue="Python.patientIDextractor" />
+        <item itemvalue="Python.folder_patids_to_csv (1)" />
+        <item itemvalue="Python.folder_patids_to_csv" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b1abcd8f-b121-4cdd-a4bf-e9164258fb2b" name="Changes" comment="" />
+      <created>1661432872962</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1661432872962</updated>
+      <workItem from="1661432875759" duration="9956000" />
+      <workItem from="1661849260789" duration="5766000" />
+      <workItem from="1661855128476" duration="19365000" />
+      <workItem from="1661925669558" duration="814000" />
+      <workItem from="1661936572481" duration="4479000" />
+      <workItem from="1661941135745" duration="21137000" />
+      <workItem from="1662107604346" duration="11052000" />
+      <workItem from="1662452933950" duration="18013000" />
+      <workItem from="1662473455426" duration="2874000" />
+      <workItem from="1662481556361" duration="578000" />
+      <workItem from="1662529469078" duration="12000" />
+      <workItem from="1662548166418" duration="9617000" />
+      <workItem from="1662626227967" duration="19137000" />
+    </task>
+    <task id="LOCAL-00001" summary="separate functions created">
+      <created>1661855058189</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1661855058189</updated>
+    </task>
+    <task id="LOCAL-00002" summary="the patient database has been converted into list, now the matching of both the lists is reqd.">
+      <created>1661863343603</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1661863343603</updated>
+    </task>
+    <task id="LOCAL-00003" summary="the patient name can be extracted by search with the patient IDs">
+      <created>1661875105685</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1661875105685</updated>
+    </task>
+    <task id="LOCAL-00004" summary="the patient name can be extracted by search with the patient IDs, the code needs to be aligned for sequential process">
+      <created>1661877789739</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1661877789739</updated>
+    </task>
+    <task id="LOCAL-00005" summary="multiple functions created to run the scipt, the present problem is to add the sub-folders in the patient name folder which is at present throwing errors">
+      <created>1661969333700</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1661969333700</updated>
+    </task>
+    <task id="LOCAL-00006" summary="multiple functions created to run the scipt, the present problem is to add the sub-folders in the patient name folder which is at present throwing errors">
+      <created>1661970599381</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1661970599381</updated>
+    </task>
+    <task id="LOCAL-00007" summary="matches done, only issue is the folder not getting nested and synced with the the ids. Check str_match_handler, patient_names_extractor, folder_tree for debugging">
+      <created>1662125372927</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1662125372927</updated>
+    </task>
+    <task id="LOCAL-00008" summary="issues not yet resolved; I need to read to file path of teh dicom directory and match with the unsortedlist then check if condition so that I can call the foldertree">
+      <created>1662479368538</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1662479368538</updated>
+    </task>
+    <task id="LOCAL-00009" summary="issues not yet resolved; I need to read to file path of teh dicom directory and match with the unsortedlist then check if condition so that I can call the foldertree&#10;&#10;07-09- the comparator needs to be fixed">
+      <created>1662564028003</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1662564028003</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="separate functions created" />
+    <MESSAGE value="the patient database has been converted into list, now the matching of both the lists is reqd." />
+    <MESSAGE value="the patient name can be extracted by search with the patient IDs" />
+    <MESSAGE value="the patient name can be extracted by search with the patient IDs, the code needs to be aligned for sequential process" />
+    <MESSAGE value="multiple functions created to run the scipt, the present problem is to add the sub-folders in the patient name folder which is at present throwing errors" />
+    <MESSAGE value="matches done, only issue is the folder not getting nested and synced with the the ids. Check str_match_handler, patient_names_extractor, folder_tree for debugging" />
+    <MESSAGE value="issues not yet resolved; I need to read to file path of teh dicom directory and match with the unsortedlist then check if condition so that I can call the foldertree" />
+    <MESSAGE value="issues not yet resolved; I need to read to file path of teh dicom directory and match with the unsortedlist then check if condition so that I can call the foldertree&#10;&#10;07-09- the comparator needs to be fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="issues not yet resolved; I need to read to file path of teh dicom directory and match with the unsortedlist then check if condition so that I can call the foldertree&#10;&#10;07-09- the comparator needs to be fixed" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/dicom_handler.py</url>
+          <line>155</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/IFL_DigiBiop$folder_reader.coverage" NAME="folder_reader Coverage Results" MODIFIED="1661444153900" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/IFL_DigiBiop$folder_patids_to_csv__1_.coverage" NAME="folder_patids_to_csv (1) Coverage Results" MODIFIED="1661949883317" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/IFL_DigiBiop$patientIDextractor__1_.coverage" NAME="patientIDextractor (1) Coverage Results" MODIFIED="1662649809895" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/IFL_DigiBiop$dicom_handler.coverage" NAME="dicom_handler Coverage Results" MODIFIED="1662473258363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/IFL_DigiBiop$patientIDextractor.coverage" NAME="patientIDextractor Coverage Results" MODIFIED="1661949905390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
+  </component>
+</project>
