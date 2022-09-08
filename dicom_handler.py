@@ -7,11 +7,12 @@ from pydicom.fileset import FileSet
 import glob
 
 
+
 class dicom_handler:
     def __call__(self, *args, **kwargs):
         return None;
 
-    def unsortedlist(self, src, dst):
+    def unsortedlist(self, src):
         unsortedList = []
         directorylist=[]
         for root, dirs, files in os.walk(src):
@@ -30,6 +31,21 @@ class dicom_handler:
         # print("directory list-->", directorylist)
         return unsortedList
 
+    def search_patid_in_dir(self, directory, matched_patient_id):
+        print("search_patid_in_dir is working now")
+
+        for fname in directory:
+            # f = open(directory+matched_patient_id, 'r')
+            # f.close()
+
+            print("matched patient ID>>>>", matched_patient_id, directory)
+            if matched_patient_id in os.listdir(directory):
+                print("found string in file", os.listdir(directory))
+                # print("i should know swhats this", Path(directory + matched_patient_id))
+                list_of_matched_name = self.unsortedlist(directory + matched_patient_id)
+                return list_of_matched_name
+            else:
+                return None
     def patient_names_extractor(self,patientIDlist, patientnameslist, dst):
         # counter which searches the patient names for their respective IDs
         print("patient_names_extractor called now")
@@ -52,12 +68,12 @@ class dicom_handler:
                 matches.append(str_match)
             list.append(patientIDlist[i])
 
-        print("matches=", matches)
+        print("matches=", matches, '\n', np.shape(matches))
 
 
         print("list=", list)
         print("no. of matches=", len(matches))
-        return np.reshape(matches,(6,5)), list
+        return np.reshape(matches,(len(matches), 5)), list
 
 
     def str_match_handler(self, patientIDlist, patientnameslist, dst):
@@ -66,9 +82,9 @@ class dicom_handler:
             ls=[]
 
             if np.shape(str_match) != (0,):
-                print('type of str_match', type(str_match))
+                # print('type of str_match', type(str_match))     #<class 'numpy.ndarray'>
                 print("folder name",str_match[0][0], str_match[0][1], str_match[0][2])
-                print("patientid-->", str_match[0][4] )
+                print("patientid-->", str_match[0][4])
                 # str_match = str_match[idx:, :]
                 # folder_patient_name = str_match[0][0] + '_' + str_match[0][1] + str_match[0][2]
                 # print("foldername=", folder_patient_name)
@@ -84,52 +100,68 @@ class dicom_handler:
             return ls
 
     def comparator(self, folder_patient_name, matched_patient_id, src):
-        matchid=[]
-        for i in range(len(matchid)):
-            matchid = matched_patient_id[i]
 
-            capture_dir = [patid for patid in src if matchid in src]
-            print("captured pat id", capture_dir)
-            return capture_dir
+        print("matched_patient_id-->", matched_patient_id)
+
+        matchid = matched_patient_id
+        # print("len matchid", len(matched_patient_id))
+        capture_dir = [patid for patid in src if matchid in src]
+        print("captured pat id", capture_dir)
+        return capture_dir
+
+    def patient_info_segregator(self, dicom_loc):
+        ds = dicom.read_file(dicom_loc, force=True)
+        # folder_patient_name = self.str_match_handler(patientIDlist, patientnameslist, dst, idx)
+        # idx += 1
+        # get patient, study, and series information
+        # directory = FileSet(ds)
+        # print("directory==>", directory)
+        patientID = clean_text(ds.get("PatientID", "NA"))
+        studyDate = clean_text(ds.get("StudyDate", "NA"))
+        studyDescription = clean_text(ds.get("StudyDescription", "NA"))
+        seriesDescription = clean_text(ds.get("SeriesDescription", "NA"))
+        #     print(type(ds[0x0008, 0x103e])) #<class 'pydicom.dataelem.DataElement'>
+
+        # generate new, standardized file name
+        modality = ds.get("Modality", "NA")
+        # studyInstanceUID = ds.get("StudyInstanceUID", "NA")
+
+        #     seriesInstanceUID = ds.get("SeriesInstanceUID","NA")
+        instanceNumber = str(ds.get("InstanceNumber", "0"))
+        fileName = modality + "." + seriesDescription + "." + instanceNumber + '.dcm'
+        #     fileName = modality + "." + seriesDescription + "." + instanceNumber + .dcm
+        # print("filename-", fileName)
+
+        return ds, dicom_loc, fileName, patientID, studyDate, studyDescription, seriesDescription
 
     def dicom(self, unsortedList, patientIDlist, patientID_dir, patientnameslist, src, dst):
-        # idx = 0
+
         folder_patient_name_list = self.str_match_handler(patientIDlist, patientnameslist, dst)
         print("folder_patient_name==>", folder_patient_name_list)
         for patient_name in folder_patient_name_list:
             folder_patient_name = patient_name[0] + '_' + patient_name[1] + patient_name[2]
             matched_patient_id = patient_name[4]
             print("foldername and matched patiient id=", folder_patient_name, matched_patient_id)
-            self.comparator(folder_patient_name, matched_patient_id, src)
+            # self.comparator(folder_patient_name, matched_patient_id, src)
+            matched_directory = self.search_patid_in_dir(src, matched_patient_id)
+            if matched_directory != None:
+                for dicom_loc in matched_directory:
+                    print("I am reading from matched directory")
+                    ds, dicom_loc, fileName, patientID, studyDate, studyDescription, seriesDescription= self.patient_info_segregator(dicom_loc)
+                    folder_tree(ds, dst, folder_patient_name, dicom_loc, fileName, patientID, studyDate,
+                                studyDescription, seriesDescription)
 
-            for dicom_loc in unsortedList:
-                # read the file
-                print("dicom running")
-                ds = dicom.read_file(dicom_loc, force=True)
-                # folder_patient_name = self.str_match_handler(patientIDlist, patientnameslist, dst, idx)
-                # idx += 1
-                # get patient, study, and series information
-                # directory = FileSet(ds)
-                # print("directory==>", directory)
-                patientID = clean_text(ds.get("PatientID", "NA"))
-                studyDate = clean_text(ds.get("StudyDate", "NA"))
-                studyDescription = clean_text(ds.get("StudyDescription", "NA"))
-                seriesDescription = clean_text(ds.get("SeriesDescription", "NA"))
-                #     print(type(ds[0x0008, 0x103e])) #<class 'pydicom.dataelem.DataElement'>
+                    # print("dicom_loc, fileName, patientID, studyDate, studyDescription, seriesDescription=", dicom_loc, fileName, patientID, studyDate, studyDescription, seriesDescription)
 
-                # generate new, standardized file name
-                modality = ds.get("Modality", "NA")
-                # studyInstanceUID = ds.get("StudyInstanceUID", "NA")
+            else:
+                for dicom_loc in unsortedList:
+                    ds, dicom_loc, fileName, patientID, studyDate, studyDescription, seriesDescription= self.patient_info_segregator(dicom_loc)
+                    print("dicom running for unsorted list where match is not found")
 
-                #     seriesInstanceUID = ds.get("SeriesInstanceUID","NA")
-                instanceNumber = str(ds.get("InstanceNumber", "0"))
-                fileName = modality + "." + seriesDescription + "." + instanceNumber + '.dcm'
-                #     fileName = modality + "." + seriesDescription + "." + instanceNumber + .dcm
-                print("filename-", fileName)
                 print("folder tree is being called now")
-                # if
-                #     folder_tree(dst, folder_patient_name, dicom_loc, fileName, patientID, studyDate, studyDescription, seriesDescription)
-                #     break
-                # folder_patient_name_list = folder_patient_name_list[1:, :]
+            # if folder_patient_name != []:
+            #     folder_tree(ds, dst, folder_patient_name, dicom_loc, fileName, patientID, studyDate, studyDescription, seriesDescription)
+            #     break
+            # folder_patient_name_list = folder_patient_name_list[1:, :]
 
         print('done')

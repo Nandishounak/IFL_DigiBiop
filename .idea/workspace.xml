@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b1abcd8f-b121-4cdd-a4bf-e9164258fb2b" name="Changes" comment="issues not yet resolved; I need to read to file path of teh dicom directory and match with the unsortedlist then check if condition so that I can call the foldertree">
+    <list default="true" id="b1abcd8f-b121-4cdd-a4bf-e9164258fb2b" name="Changes" comment="issues not yet resolved; I need to read to file path of teh dicom directory and match with the unsortedlist then check if condition so that I can call the foldertree&#10;&#10;07-09- the comparator needs to be fixed">
+      <change afterPath="$PROJECT_DIR$/search_patid_in_dir.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dicomreader_test.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Dicomreader_test.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dicom_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/dicom_handler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/patientIDextractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/patientIDextractor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/save_folder_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/save_folder_tree.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +55,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/shoun/PycharmProjects/youtubetomp3"
+    "last_opened_file_path": "C:/Users/shoun/PycharmProjects/pythonProject/IFL_DigiBiop"
   },
   "keyToStringList": {
     "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
@@ -205,7 +208,8 @@
       <workItem from="1662473455426" duration="2874000" />
       <workItem from="1662481556361" duration="578000" />
       <workItem from="1662529469078" duration="12000" />
-      <workItem from="1662548166418" duration="9465000" />
+      <workItem from="1662548166418" duration="9617000" />
+      <workItem from="1662626227967" duration="19137000" />
     </task>
     <task id="LOCAL-00001" summary="separate functions created">
       <created>1661855058189</created>
@@ -263,7 +267,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662479368538</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="issues not yet resolved; I need to read to file path of teh dicom directory and match with the unsortedlist then check if condition so that I can call the foldertree&#10;&#10;07-09- the comparator needs to be fixed">
+      <created>1662564028003</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1662564028003</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,15 +299,16 @@
     <MESSAGE value="multiple functions created to run the scipt, the present problem is to add the sub-folders in the patient name folder which is at present throwing errors" />
     <MESSAGE value="matches done, only issue is the folder not getting nested and synced with the the ids. Check str_match_handler, patient_names_extractor, folder_tree for debugging" />
     <MESSAGE value="issues not yet resolved; I need to read to file path of teh dicom directory and match with the unsortedlist then check if condition so that I can call the foldertree" />
-    <option name="LAST_COMMIT_MESSAGE" value="issues not yet resolved; I need to read to file path of teh dicom directory and match with the unsortedlist then check if condition so that I can call the foldertree" />
+    <MESSAGE value="issues not yet resolved; I need to read to file path of teh dicom directory and match with the unsortedlist then check if condition so that I can call the foldertree&#10;&#10;07-09- the comparator needs to be fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="issues not yet resolved; I need to read to file path of teh dicom directory and match with the unsortedlist then check if condition so that I can call the foldertree&#10;&#10;07-09- the comparator needs to be fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/dicom_handler.py</url>
-          <line>107</line>
-          <option name="timeStamp" value="1" />
+          <line>155</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -311,7 +323,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/IFL_DigiBiop$folder_reader.coverage" NAME="folder_reader Coverage Results" MODIFIED="1661444153900" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/IFL_DigiBiop$folder_patids_to_csv__1_.coverage" NAME="folder_patids_to_csv (1) Coverage Results" MODIFIED="1661949883317" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/IFL_DigiBiop$patientIDextractor__1_.coverage" NAME="patientIDextractor (1) Coverage Results" MODIFIED="1662563942381" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/IFL_DigiBiop$patientIDextractor__1_.coverage" NAME="patientIDextractor (1) Coverage Results" MODIFIED="1662649809895" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/IFL_DigiBiop$dicom_handler.coverage" NAME="dicom_handler Coverage Results" MODIFIED="1662473258363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/IFL_DigiBiop$patientIDextractor.coverage" NAME="patientIDextractor Coverage Results" MODIFIED="1661949905390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
   </component>

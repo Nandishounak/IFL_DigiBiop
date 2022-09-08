@@ -61,6 +61,6 @@ if __name__ == '__main__':
 
 
     x = dicom_handler() #initiate the class dicom_handler()
-    unsortedList = x.unsortedlist(source, destination)
+    unsortedList = x.unsortedlist(source)
     # print('unsortedList', unsortedList)
     x.dicom(unsortedList, patientIDlist, patientID_dir, patientnameslist, source, destination)
