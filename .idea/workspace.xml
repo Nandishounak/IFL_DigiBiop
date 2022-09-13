@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="b1abcd8f-b121-4cdd-a4bf-e9164258fb2b" name="Changes" comment="issues not yet resolved; I need to read to file path of teh dicom directory and match with the unsortedlist then check if condition so that I can call the foldertree&#10;&#10;07-09- the comparator needs to be fixed">
       <change afterPath="$PROJECT_DIR$/search_patid_in_dir.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -9,11 +10,83 @@
       <change beforePath="$PROJECT_DIR$/patientIDextractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/patientIDextractor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/save_folder_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/save_folder_tree.py" afterDir="false" />
     </list>
+=======
+    <list default="true" id="3b9573be-bd09-41b2-98b8-c58a11791d28" name="Default Changelist" comment="added csv file to gitignore since size is large">
+      <change afterPath="$PROJECT_DIR$/.idea/ProstateDB.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IFL_DigiBiop/digibiop/.idea/IFL_DigiBiop.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IFL_DigiBiop/digibiop/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IFL_DigiBiop/digibiop/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IFL_DigiBiop/digibiop/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IFL_DigiBiop/digibiop/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IFL_DigiBiop/digibiop/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IFL_DigiBiop/digibiop/clean_text.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IFL_DigiBiop/digibiop/csv_reader.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IFL_DigiBiop/digibiop/dicom_handler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IFL_DigiBiop/digibiop/folder_patids_to_csv.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IFL_DigiBiop/digibiop/packages.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IFL_DigiBiop/digibiop/patientIDextractor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IFL_DigiBiop/digibiop/save_folder_tree.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IFL_DigiBiop/digibiop/search_patid_in_dir.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IFL_DigiBiop" beforeDir="false" afterPath="$PROJECT_DIR$/IFL_DigiBiop" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IFL_DigiBiop/digibiop/.~lock.output_test.csv#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IFL_DigiBiop/digibiop/Dicomreader_WIndows.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/IFL_DigiBiop/digibiop/Dicomreader_WIndows.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IFL_DigiBiop/digibiop/Dicomreader_test.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/IFL_DigiBiop/digibiop/Dicomreader_test.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IFL_DigiBiop/digibiop/dicom_reader_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/IFL_DigiBiop/digibiop/dicom_reader_1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IFL_DigiBiop/digibiop/folder_reader.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IFL_DigiBiop/digibiop/patient id merger.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/IFL_DigiBiop/digibiop/patient id merger.ipynb" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< Updated upstream
+=======
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/IFL_DigiBiop/digibiop/dicom_reader_1.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/IFL_DigiBiop/digibiop/dicom_handler.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="24" lean-forward="true" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/IFL_DigiBiop/digibiop/packages.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/IFL_DigiBiop/digibiop/folder_patids_to_csv.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+>>>>>>> Stashed changes
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -21,6 +94,7 @@
       </list>
     </option>
   </component>
+<<<<<<< Updated upstream
   <component name="Git.Merge.Settings">
     <option name="BRANCH" value="main" />
   </component>
@@ -115,6 +189,94 @@
     </configuration>
     <configuration name="folder_patids_to_csv" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="IFL_DigiBiop" />
+=======
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>CT Drainage</find>
+      <find>pELVI</find>
+      <find>Pelvis</find>
+      <find>Pel</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/IFL_DigiBiop/digibiop" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/folder_reader.py" />
+        <option value="$PROJECT_DIR$/dicom_reader.py" />
+        <option value="$PROJECT_DIR$/IFL_DigiBiop/.gitignore" />
+        <option value="$PROJECT_DIR$/IFL_DigiBiop/digibiop/dicom_reader_1.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="325" />
+    <option name="y" value="43" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ProstateDB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProstateDB" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProstateDB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProstateDB" type="462c0819:PsiDirectoryNode" />
+              <item name="IFL_DigiBiop" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ProstateDB" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProstateDB" type="462c0819:PsiDirectoryNode" />
+              <item name="IFL_DigiBiop" type="462c0819:PsiDirectoryNode" />
+              <item name="digibiop" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/miniconda3/bin/python" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.dicom_reader">
+    <configuration name="dicom_reader" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ProstateDB" />
+>>>>>>> Stashed changes
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -126,7 +288,11 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+<<<<<<< Updated upstream
       <option name="SCRIPT_NAME" value="C:\Users\shoun\PycharmProjects\pythonProject\IFL_DigiBiop\folder_patids_to_csv.py" />
+=======
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dicom_reader.py" />
+>>>>>>> Stashed changes
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -135,12 +301,21 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+<<<<<<< Updated upstream
     <configuration name="patientIDextractor (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="IFL_DigiBiop" />
+=======
+    <configuration name="folder_reader" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ProstateDB" />
+>>>>>>> Stashed changes
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+<<<<<<< Updated upstream
+=======
+        <env name="LD_LIBRARY_PATH" value="$LD_LIBRARY_PATH:/usr/lib/ImFusionLib/plugins" />
+>>>>>>> Stashed changes
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -148,6 +323,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+<<<<<<< Updated upstream
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/patientIDextractor.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -173,6 +349,11 @@
       <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/patientIDextractor.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
+=======
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/folder_reader.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+>>>>>>> Stashed changes
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
@@ -181,6 +362,7 @@
     </configuration>
     <recent_temporary>
       <list>
+<<<<<<< Updated upstream
         <item itemvalue="Python.patientIDextractor (1)" />
         <item itemvalue="Python.dicom_handler" />
         <item itemvalue="Python.patientIDextractor" />
@@ -279,19 +461,150 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+=======
+        <item itemvalue="Python.dicom_reader" />
+        <item itemvalue="Python.folder_reader" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3b9573be-bd09-41b2-98b8-c58a11791d28" name="Default Changelist" comment="" />
+      <created>1657023423255</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1657023423255</updated>
+      <workItem from="1657023428225" duration="5457000" />
+      <workItem from="1657187627709" duration="2457000" />
+      <workItem from="1657199029397" duration="501000" />
+      <workItem from="1657199550083" duration="1197000" />
+      <workItem from="1657200879874" duration="273000" />
+      <workItem from="1657201769874" duration="6595000" />
+      <workItem from="1657279496499" duration="360000" />
+      <workItem from="1657279943886" duration="155700000" />
+      <workItem from="1657635214264" duration="20637000" />
+      <workItem from="1660739462266" duration="9811000" />
+      <workItem from="1661433387451" duration="1746000" />
+      <workItem from="1662650578639" duration="187000" />
+    </task>
+    <task id="LOCAL-00001" summary="added csv file to gitignore since size is large">
+      <created>1661357308496</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1661357308496</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added csv file to gitignore since size is large">
+      <created>1661358941864</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1661358941864</updated>
+    </task>
+    <task id="LOCAL-00003" summary="minor changes">
+      <created>1661444124945</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1661444124945</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="204921000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="72" y="27" width="1848" height="1173" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49903476" visible="true" weight="0.25860155" />
+      <window_info id="Favorites" order="1" sideWeight="0.50096524" side_tool="true" weight="0.3063263" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49889013" weight="0.55791503" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49778023" weight="0.028957529" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49889013" weight="0.3291506" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49778023" weight="0.3291506" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50443953" side_tool="true" visible="true" weight="0.1003861" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4955605" visible="true" weight="0.1003861" />
+      <window_info anchor="bottom" id="Python Console" order="12" sideWeight="0.49833518" weight="0.4546332" />
+      <window_info anchor="bottom" id="Jupyter" order="13" sideWeight="0.49833518" weight="0.5" />
+      <window_info anchor="bottom" id="Messages" order="14" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.32963374" />
+      <window_info anchor="right" id="Database" order="4" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+>>>>>>> Stashed changes
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
+<<<<<<< Updated upstream
             <State />
+=======
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+>>>>>>> Stashed changes
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+<<<<<<< Updated upstream
     <MESSAGE value="separate functions created" />
     <MESSAGE value="the patient database has been converted into list, now the matching of both the lists is reqd." />
     <MESSAGE value="the patient name can be extracted by search with the patient IDs" />
@@ -311,6 +624,14 @@
           <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
+=======
+    <MESSAGE value="added csv file to gitignore since size is large" />
+    <MESSAGE value="minor changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor changes" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+>>>>>>> Stashed changes
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -321,10 +642,121 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+<<<<<<< Updated upstream
     <SUITE FILE_PATH="coverage/IFL_DigiBiop$folder_reader.coverage" NAME="folder_reader Coverage Results" MODIFIED="1661444153900" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/IFL_DigiBiop$folder_patids_to_csv__1_.coverage" NAME="folder_patids_to_csv (1) Coverage Results" MODIFIED="1661949883317" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/IFL_DigiBiop$patientIDextractor__1_.coverage" NAME="patientIDextractor (1) Coverage Results" MODIFIED="1662649809895" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/IFL_DigiBiop$dicom_handler.coverage" NAME="dicom_handler Coverage Results" MODIFIED="1662473258363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/IFL_DigiBiop$patientIDextractor.coverage" NAME="patientIDextractor Coverage Results" MODIFIED="1661949905390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
+=======
+    <SUITE FILE_PATH="coverage/ProstateDB$dicom_reader.coverage" NAME="dicom_reader Coverage Results" MODIFIED="1657805486844" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ProstateDB$folder_reader.coverage" NAME="folder_reader Coverage Results" MODIFIED="1657210910185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file:///mnt/ssd2/tobiascz/pycharm-2019.1.3/helpers/third_party/thriftpy/_shaded_ply/yacc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="1109" column="42" selection-start-line="1109" selection-start-column="42" selection-end-line="1109" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.8/site-packages/imfusion/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/miniconda3/lib/python3.9/site-packages/imfusion/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///mnt/ssd2/tobiascz/pycharm-2019.1.3/helpers/third_party/thriftpy/_shaded_thriftpy/_compat.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="101" selection-start-line="101" selection-end-line="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dicom_reader.py" />
+    <entry file="file://$PROJECT_DIR$/folder_reader.py" />
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.8/site-packages/pydicom/dataset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="1121" selection-start-line="1118" selection-start-column="15" selection-end-line="1121" />
+          <folding>
+            <element signature="e#12#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.8/site-packages/dicom_csv/crawler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="122" column="4" selection-start-line="122" selection-start-column="4" selection-end-line="122" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IFL_DigiBiop/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IFL_DigiBiop/digibiop/Dicomreader_test.ipynb">
+      <provider selected="true" editor-type-id="jupyter-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IFL_DigiBiop/digibiop/Dicomreader_WIndows.ipynb">
+      <provider selected="true" editor-type-id="jupyter-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IFL_DigiBiop/digibiop/dicom_reader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IFL_DigiBiop/digibiop/digibiop/dicom_reader_1.py" />
+    <entry file="file://$PROJECT_DIR$/IFL_DigiBiop/digibiop/digibiop/Dicomreader_test.ipynb" />
+    <entry file="file://$PROJECT_DIR$/IFL_DigiBiop/digibiop/digibiop/Dicomreader_WIndows.ipynb" />
+    <entry file="file://$PROJECT_DIR$/IFL_DigiBiop/digibiop/patient id merger.ipynb">
+      <provider selected="true" editor-type-id="jupyter-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IFL_DigiBiop/digibiop/dicom_reader_1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IFL_DigiBiop/digibiop/packages.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IFL_DigiBiop/digibiop/folder_patids_to_csv.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IFL_DigiBiop/digibiop/clean_text.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IFL_DigiBiop/digibiop/dicom_handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="24" lean-forward="true" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> Stashed changes
   </component>
 </project>

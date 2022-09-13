@@ -20,11 +20,11 @@ def pat_id_extractor(path):
         d = os.path.join(path, file)
         if os.path.isdir(d):
             # print(d)
-            x = d.split('\\')
+            x = d.split(os.sep)
             # print(x[-1])  #returns the patient IDs
             pat_id_list.append(x[-1])
     print("there are",len(pat_id_list), "ids in this source path")
-    store_dir_patids = glob.glob(path + '\\*')
+    store_dir_patids = glob.glob(path + os.sep + '*')
 
     return pat_id_list, store_dir_patids
 
@@ -40,15 +40,29 @@ def flatten(l):
 
 
 if __name__ == '__main__':
-    source = "C:\\Users\\shoun\\OneDrive - TUM\\Downloads\\patientdata_yr_19\\19\\"
-    #only for testing
-    # source = "C:\\Users\\shoun\\OneDrive - TUM\\Downloads\\patientdata_yr_19\\19\\0001074223\\"  # path from where the script reads the dicom files-->ideally a folder having
-                                                                                     # several subfolders of different IDs, but can also be tested with a single DICOM file
-    destination = "C:\\Users\\shoun\\OneDrive - TUM\\Projects\\outputs\\digibiop\\"  # destination of the output where the sorted files will be stored
 
-    given_list = "C:\\Users\\shoun\\OneDrive - TUM\\Projects\\outputs\\digibiop\\patientID_names_Database_unsorted.csv" #path to the database of the patient names
+    ################################ F O R   W I N D O W S ###############################################
+    # source = "C:\\Users\\shoun\\OneDrive - TUM\\Downloads\\patientdata_yr_19\\19\\"
+    # #only for testing
+    # # source = "C:\\Users\\shoun\\OneDrive - TUM\\Downloads\\patientdata_yr_19\\19\\0001074223\\"  # path from where the script reads the dicom files-->ideally a folder having
+    #                                                                                  # several subfolders of different IDs, but can also be tested with a single DICOM file
+    # destination = "C:\\Users\\shoun\\OneDrive - TUM\\Projects\\outputs\\digibiop\\"  # destination of the output where the sorted files will be stored
+    #
+    # given_list = "C:\\Users\\shoun\\OneDrive - TUM\\Projects\\outputs\\digibiop\\patientID_names_Database_unsorted.csv" #path to the database of the patient names
 
-    # patientIDlist = pat_id_to_csv(source)  #not reqd at the moment
+    ##################### F O R   I F L P C  ##############################################################
+
+    source = "//mnt//projects//DeepProstateDB//Data//15//"
+    destination = "/mnt/HDD1/shounak/OUTPUT_SEPT/"  # destination of the output where the sorted files will be stored
+    given_list = "/mnt/HDD1/shounak/Inputs/patientID_names_database_unsorted.csv" #path to the database of the patient names
+
+    ######################################################################################################
+
+
+
+
+
+# patientIDlist = pat_id_to_csv(source)  #not reqd at the moment
     patientIDlist, patientID_dir = pat_id_extractor(source)
     patientnameslist = csv_read(given_list)  # reads the data from the patient database csv and stores in a variable list
 

@@ -51,17 +51,28 @@ class dicom_handler:
         print("patient_names_extractor called now")
         list=[]
         matches=[]
+        # patientnameslist=['a/1', 'b/2', 'c/3', 'd/4']
+        # patientIDlist= ['1','2']
         for i in range(len(patientIDlist)):
 
             ls = patientIDlist[i]
+            # print ("ls",type(ls))
+            # print("patientnameslist", patientnameslist)
+            # print("patientIDlist", patientIDlist)
 
-            # print("patient_names_extractor running", "\n", "length of patientIDlist=", len(ls), '\n', "length of patientnameslist=", len(patientnameslist))
+
+        # print("patient_names_extractor running", "\n", "length of patientIDlist=", len(ls), '\n', "length of patientnameslist=", len(patientnameslist))
             # # for i in range(len(patientIDlist)):
             # print("patient_names_extractor running inside loop")
             #
+
+            # for s in patientnameslist:
+            #     if ls in s:
+            #         str_match=s
             str_match = [s for s in patientnameslist if ls in s]
             # # folder_patient_name = str(str_match)
-            print("str_match", str_match)
+            # print("str_match", str_match)
+
 
             if str_match!= []:
                 print("str_match found=", str_match, "\n")
@@ -69,6 +80,7 @@ class dicom_handler:
             list.append(patientIDlist[i])
 
         print("matches=", matches, '\n', np.shape(matches))
+        # match_reshaped= matches
 
 
         print("list=", list)
@@ -81,7 +93,7 @@ class dicom_handler:
             print("string match handler called", "shape of str_match_handler==>", np.shape(str_match), '\n', str_match)
             ls=[]
 
-            if np.shape(str_match) != (0,):
+            if np.shape(str_match) != (0, 5):   #the shape depends on the number of columns present in the csv file. Since I have created an extra coulumn, it is (1,5). otherwise it would have been 4, 3 coulmns for name and 1 for patient ID
                 # print('type of str_match', type(str_match))     #<class 'numpy.ndarray'>
                 print("folder name",str_match[0][0], str_match[0][1], str_match[0][2])
                 print("patientid-->", str_match[0][4])
@@ -104,7 +116,7 @@ class dicom_handler:
         print("matched_patient_id-->", matched_patient_id)
 
         matchid = matched_patient_id
-        # print("len matchid", len(matched_patient_id))
+        print("len matchid", len(matched_patient_id))
         capture_dir = [patid for patid in src if matchid in src]
         print("captured pat id", capture_dir)
         return capture_dir
