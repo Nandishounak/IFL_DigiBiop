@@ -3,3 +3,4 @@ This script is prepared in order to segregate the dicom images. The script perfo
 1. Sorting the DICOM files based on modalities and type of scans for a particular patient ID. These patient file are contained in separate 'year of scan folder'.
 2. The final task is assigning the names of the patient in the patient folder, after taking the data from the master csv file containing the patient names with their corresponding IDs.
 3. The Patient ID with the names .csv file should contain the patient IDS starting with "000" in  order to get them matched with the script.
+4. The csv file which stores the patient names and their corresponding IDs must ensure that there are no duplicate entries.
