@@ -51,17 +51,28 @@ class dicom_handler:
         print("patient_names_extractor called now")
         list=[]
         matches=[]
+        # patientnameslist=['a/1', 'b/2', 'c/3', 'd/4']
+        # patientIDlist= ['1','2']
         for i in range(len(patientIDlist)):
 
             ls = patientIDlist[i]
+            # print ("ls",type(ls))
+            # print("patientnameslist", patientnameslist)
+            # print("patientIDlist", patientIDlist)
+
 
             # print("patient_names_extractor running", "\n", "length of patientIDlist=", len(ls), '\n', "length of patientnameslist=", len(patientnameslist))
             # # for i in range(len(patientIDlist)):
             # print("patient_names_extractor running inside loop")
             #
+
+            # for s in patientnameslist:
+            #     if ls in s:
+            #         str_match=s
             str_match = [s for s in patientnameslist if ls in s]
             # # folder_patient_name = str(str_match)
-            print("str_match", str_match)
+            # print("str_match", str_match)
+
 
             if str_match!= []:
                 print("str_match found=", str_match, "\n")
@@ -69,6 +80,7 @@ class dicom_handler:
             list.append(patientIDlist[i])
 
         print("matches=", matches, '\n', np.shape(matches))
+        # match_reshaped= matches
 
 
         print("list=", list)
@@ -77,34 +89,34 @@ class dicom_handler:
 
 
     def str_match_handler(self, patientIDlist, patientnameslist, dst):
-            str_match, ls = self.patient_names_extractor(patientIDlist, patientnameslist, dst)
-            print("string match handler called", "shape of str_match_handler==>", np.shape(str_match), '\n', str_match)
-            ls=[]
+        str_match, ls = self.patient_names_extractor(patientIDlist, patientnameslist, dst)
+        print("string match handler called....shape of str_match_handler==>", np.shape(str_match))
+        ls=[]
 
-            if np.shape(str_match) != (0,):
-                # print('type of str_match', type(str_match))     #<class 'numpy.ndarray'>
-                print("folder name",str_match[0][0], str_match[0][1], str_match[0][2])
-                print("patientid-->", str_match[0][4])
-                # str_match = str_match[idx:, :]
-                # folder_patient_name = str_match[0][0] + '_' + str_match[0][1] + str_match[0][2]
-                # print("foldername=", folder_patient_name)
-                # np.delete(str_match, (0), axis=0)
+        if np.shape(str_match) != (0, 5):   #the shape depends on the number of columns present in the csv file. Since I have created an extra coulumn, it is (1,5). otherwise it would have been 4, 3 coulmns for name and 1 for patient ID
+            # print('type of str_match', type(str_match))     #<class 'numpy.ndarray'>
+            # print("folder name",str_match[0][0], str_match[0][1], str_match[0][2])
+            # print("patientid-->", str_match[0][4])
+            # str_match = str_match[idx:, :]
+            # folder_patient_name = str_match[0][0] + '_' + str_match[0][1] + str_match[0][2]
+            # print("foldername=", folder_patient_name)
+            # np.delete(str_match, (0), axis=0)
 
-                print("str match test", str_match)
-                # return folder_patient_name
-                return str_match
-            else:
-                print("no matches found, returning ls-", ls)
+            print("str match(matched patient names and ids)","\n", str_match)
+            # return folder_patient_name
+            return str_match
+        else:
+            print("no matches found, check for duplicate entries....returning...", ls)
 
 
-            return ls
+        return ls
 
     def comparator(self, folder_patient_name, matched_patient_id, src):
 
         print("matched_patient_id-->", matched_patient_id)
 
         matchid = matched_patient_id
-        # print("len matchid", len(matched_patient_id))
+        print("len matchid", len(matched_patient_id))
         capture_dir = [patid for patid in src if matchid in src]
         print("captured pat id", capture_dir)
         return capture_dir
@@ -137,7 +149,7 @@ class dicom_handler:
     def dicom(self, unsortedList, patientIDlist, patientID_dir, patientnameslist, src, dst):
 
         folder_patient_name_list = self.str_match_handler(patientIDlist, patientnameslist, dst)
-        print("folder_patient_name==>", folder_patient_name_list)
+        # print("folder_patient_name==>", folder_patient_name_list)
         for patient_name in folder_patient_name_list:
             folder_patient_name = patient_name[0] + '_' + patient_name[1] + patient_name[2]
             matched_patient_id = patient_name[4]
