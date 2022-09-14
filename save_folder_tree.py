@@ -35,6 +35,6 @@ def folder_tree(ds, dst, folder_patient_name, dicom_loc, fileName, patientID, st
             os.path.join(dst, folder_patient_name, patientID, studyDate, studyDescription, seriesDescription)):
             os.makedirs(os.path.join(dst, folder_patient_name, patientID, studyDate, studyDescription, seriesDescription))
             # print('Saving out file: %s - %s - %s - %s - %s.' % (folder_patient_name, patientID, studyDate, studyDescription, seriesDescription))
-        # else:   os.makedirs(os.path.join(dst, folder_patient_name, patientID, studyDate, studyDescription, seriesDescription))
-            print('Saving out file: %s - %s - %s - %s - %s.' % (folder_patient_name, patientID, studyDate, studyDescription, seriesDescription))
-            return ds.save_as(os.path.join(dst, folder_patient_name, patientID, studyDate, studyDescription, seriesDescription, fileName))
+            # else:   os.makedirs(os.path.join(dst, folder_patient_name, patientID, studyDate, studyDescription, seriesDescription))
+        print('Saving out file: %s - %s - %s - %s - %s.' % (folder_patient_name, patientID, studyDate, studyDescription, seriesDescription))
+        return ds.save_as(os.path.join(dst, folder_patient_name, patientID, studyDate, studyDescription, seriesDescription, fileName))

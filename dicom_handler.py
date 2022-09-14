@@ -90,23 +90,23 @@ class dicom_handler:
 
     def str_match_handler(self, patientIDlist, patientnameslist, dst):
             str_match, ls = self.patient_names_extractor(patientIDlist, patientnameslist, dst)
-            print("string match handler called", "shape of str_match_handler==>", np.shape(str_match), '\n', str_match)
+            print("string match handler called....shape of str_match_handler==>", np.shape(str_match))
             ls=[]
 
             if np.shape(str_match) != (0, 5):   #the shape depends on the number of columns present in the csv file. Since I have created an extra coulumn, it is (1,5). otherwise it would have been 4, 3 coulmns for name and 1 for patient ID
                 # print('type of str_match', type(str_match))     #<class 'numpy.ndarray'>
-                print("folder name",str_match[0][0], str_match[0][1], str_match[0][2])
-                print("patientid-->", str_match[0][4])
+                # print("folder name",str_match[0][0], str_match[0][1], str_match[0][2])
+                # print("patientid-->", str_match[0][4])
                 # str_match = str_match[idx:, :]
                 # folder_patient_name = str_match[0][0] + '_' + str_match[0][1] + str_match[0][2]
                 # print("foldername=", folder_patient_name)
                 # np.delete(str_match, (0), axis=0)
 
-                print("str match test", str_match)
+                print("str match(matched patient names and ids)","\n", str_match)
                 # return folder_patient_name
                 return str_match
             else:
-                print("no matches found, returning ls-", ls)
+                print("no matches found, check for duplicate entries....returning...", ls)
 
 
             return ls
@@ -149,7 +149,7 @@ class dicom_handler:
     def dicom(self, unsortedList, patientIDlist, patientID_dir, patientnameslist, src, dst):
 
         folder_patient_name_list = self.str_match_handler(patientIDlist, patientnameslist, dst)
-        print("folder_patient_name==>", folder_patient_name_list)
+        # print("folder_patient_name==>", folder_patient_name_list)
         for patient_name in folder_patient_name_list:
             folder_patient_name = patient_name[0] + '_' + patient_name[1] + patient_name[2]
             matched_patient_id = patient_name[4]
