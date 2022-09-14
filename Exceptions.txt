@@ -1,0 +1,20 @@
+exception found:
+
+SAME patient ids-
+Paulsen, Werner	2296683
+Schaller, Rudolf	2296683
+Elbard,	Rolf		2359474
+Klinger, Ewald	2359474
+
+
+NO PATIENT IDS-
+
+Maurer	Leonhard
+Sedlmeier	Medardus
+Bermann	Kim
+Schneider	Alexander
+Rutz	Frank
+brummer	martin
+Wagner	Robert
+Winkelmaier	Maximilian
+
