@@ -52,7 +52,7 @@ if __name__ == '__main__':
 
     ##################### F O R   I F L P C  ##############################################################
 
-    source = "//mnt//projects//DeepProstateDB//Data//16//"
+    source = "//mnt//projects//DeepProstateDB//Data//19//"
     destination = "/mnt/HDD1/shounak/OUTPUT_SEPT/"  # destination of the output where the sorted files will be stored
     given_list = "/mnt/HDD1/shounak/Inputs/patientID_names_database_unsorted.csv" #path to the database of the patient names
 
