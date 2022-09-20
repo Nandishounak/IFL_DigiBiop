@@ -4,7 +4,6 @@ from save_folder_tree import *
 from clean_text import *
 import numpy as np
 from pydicom.fileset import FileSet
-import glob
 
 
 
@@ -95,12 +94,7 @@ class dicom_handler:
 
             if np.shape(str_match) != (0, 5):   #the shape depends on the number of columns present in the csv file. Since I have created an extra coulumn, it is (1,5). otherwise it would have been 4, 3 coulmns for name and 1 for patient ID
                 # print('type of str_match', type(str_match))     #<class 'numpy.ndarray'>
-                # print("folder name",str_match[0][0], str_match[0][1], str_match[0][2])
-                # print("patientid-->", str_match[0][4])
-                # str_match = str_match[idx:, :]
-                # folder_patient_name = str_match[0][0] + '_' + str_match[0][1] + str_match[0][2]
-                # print("foldername=", folder_patient_name)
-                # np.delete(str_match, (0), axis=0)
+
 
                 print("str match(matched patient names and ids)","\n", str_match)
                 # return folder_patient_name
@@ -123,8 +117,7 @@ class dicom_handler:
 
     def patient_info_segregator(self, dicom_loc):
         ds = dicom.read_file(dicom_loc, force=True)
-        # folder_patient_name = self.str_match_handler(patientIDlist, patientnameslist, dst, idx)
-        # idx += 1
+
         # get patient, study, and series information
         # directory = FileSet(ds)
         # print("directory==>", directory)
