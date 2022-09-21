@@ -1,10 +1,10 @@
-import pydicom as dicom
-from patientIDextractor import *
+# import pydicom as dicom
+# from patientIDextractor import *
 from save_folder_tree import *
 from clean_text import *
 import numpy as np
-from pydicom.fileset import FileSet
-import glob
+# from pydicom.fileset import FileSet
+# import glob
 
 
 
