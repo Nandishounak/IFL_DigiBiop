@@ -1,16 +1,5 @@
-/digibiop/0001211180/
-/digibiop/0001330324/
-/digibiop/Copies/
-/digibiop/DICOMDIR
-/digibiop/EE3AEA90
-/digibiop/EE5D33F2
-/digibiop/.idea
-/digibiop/0001073219
-/digibiop/Diagnostic Imaging Table Queries
-/dicom_reader_1.py
 /dicom_reader.py
-/Dicomreader_test.ipynb
-/Dicomreader_WIndows.ipynb
-/patient id merger.ipynb
-/0001073219
+/dicom_reader_1.py
 /.idea
+/0001073219
+/test_folder
