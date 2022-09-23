@@ -4,6 +4,7 @@ from operator import itemgetter
 from clean_text import *
 from dicom_handler import *
 from folder_patids_to_csv import *
+import glob
 
 
 def Extract(lst):

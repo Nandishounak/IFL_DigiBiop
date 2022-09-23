@@ -6,13 +6,16 @@ from patientIDextractor import *
 
 
 if __name__ == '__main__':
-    source = "C:\\Users\\shoun\\OneDrive - TUM\\Downloads\\patientdata_yr_19\\19\\"
+    # source = "C:\\Users\\shoun\\OneDrive - TUM\\Downloads\\patientdata_yr_19\\19\\"
+    source = "/mnt/projects/DeepProstateDB/Data/19/"
     #only for testing
     # source = "C:\\Users\\shoun\\OneDrive - TUM\\Downloads\\patientdata_yr_19\\19\\0001074223\\"  # path from where the script reads the dicom files-->ideally a folder having
                                                                                      # several subfolders of different IDs, but can also be tested with a single DICOM file
-    destination = "C:\\Users\\shoun\\OneDrive - TUM\\Projects\\outputs\\digibiop\\"  # destination of the output where the sorted files will be stored
+    # destination = "C:\\Users\\shoun\\OneDrive - TUM\\Projects\\outputs\\digibiop\\"  # destination of the output where the sorted files will be stored
+    destination = "/mnt/HDD1/shounak/test_output/19/"
 
-    given_list = "C:\\Users\\shoun\\OneDrive - TUM\\Projects\\outputs\\digibiop\\patientID_names_Database_unsorted.csv" #path to the database of the patient names
+    # given_list = "C:\\Users\\shoun\\OneDrive - TUM\\Projects\\outputs\\digibiop\\patientID_names_Database_unsorted.csv" #path to the database of the patient names
+    given_list = "/mnt/HDD1/shounak/Inputs/patientID_names_database_unsorted.csv"
 
     # patientIDlist = pat_id_to_csv(source)  #not reqd at the moment
     patientIDlist, patientID_dir = pat_id_extractor(source)

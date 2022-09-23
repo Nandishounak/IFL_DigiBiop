@@ -50,6 +50,7 @@ class dicom_handler:
         print("patient_names_extractor called now")
         list=[]
         matches=[]
+        unmatches=[]
         # patientnameslist=['a/1', 'b/2', 'c/3', 'd/4']
         # patientIDlist= ['1','2']
         for i in range(len(patientIDlist)):
@@ -69,16 +70,25 @@ class dicom_handler:
             #     if ls in s:
             #         str_match=s
             str_match = [s for s in patientnameslist if ls in s]
-            # # folder_patient_name = str(str_match)
+            str_unmatch = [um for um in patientIDlist if ls not in patientnameslist]
+
+        # # folder_patient_name = str(str_match)
             # print("str_match", str_match)
 
 
             if str_match!= []:
                 print("str_match found=", str_match, "\n")
                 matches.append(str_match)
+            # list.append(patientIDlist[i])
+
+
+            if str_unmatch != []:
+                # print("str_match found=", str_unmatch, "\n")
+                unmatches.append(str_unmatch)
             list.append(patientIDlist[i])
 
         print("matches=", matches, '\n', np.shape(matches))
+        print("unmatches=", unmatches, '\n', np.shape(unmatches))
         # match_reshaped= matches
 
 
