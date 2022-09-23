@@ -70,7 +70,13 @@ class dicom_handler:
             #     if ls in s:
             #         str_match=s
             str_match = [s for s in patientnameslist if ls in s]
-            str_unmatch = [um for um in patientIDlist if ls not in patientnameslist]
+            for um in patientnameslist:
+                if ls not in um:
+                    str_unmatch = um
+                    if str_unmatch != []:
+                        # print("str_match found=", str_unmatch, "\n")
+                        unmatches.append(str_unmatch)
+            # str_unmatch = [um for um not in patientnameslist if ls in um]
 
         # # folder_patient_name = str(str_match)
             # print("str_match", str_match)
@@ -82,9 +88,7 @@ class dicom_handler:
             # list.append(patientIDlist[i])
 
 
-            if str_unmatch != []:
-                # print("str_match found=", str_unmatch, "\n")
-                unmatches.append(str_unmatch)
+
             list.append(patientIDlist[i])
 
         print("matches=", matches, '\n', np.shape(matches))
