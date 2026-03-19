@@ -1,16 +1,28 @@
-#This script only reads .csv and will throw encoding error for .xlsx files
+"""Read the patient names CSV database."""
+
 import csv
-import numpy as np
 
 
 def csv_read(path):
-    mycsvlist=[]
-    with open(path, encoding="ISO-8859-1", newline='') as csvfile: #for windows
-        xyz= csv.reader(csvfile, delimiter=',', quotechar='|')
-        for row in xyz:
-            # print(', '.join(row))
-            # print(type(row))
-            mycsvlist.append(row)
+    """Read a CSV file and return all rows as a list of lists.
 
-    print(mycsvlist, '\n')
-    return mycsvlist
+    Uses ISO-8859-1 encoding to handle special characters (e.g., ü, ö, ä).
+
+    Parameters
+    ----------
+    path : str
+        Path to the CSV file.
+
+    Returns
+    -------
+    list of list
+        Each inner list is a row from the CSV.
+    """
+    rows = []
+    with open(path, encoding="ISO-8859-1", newline="") as csvfile:
+        reader = csv.reader(csvfile, delimiter=",", quotechar="|")
+        for row in reader:
+            rows.append(row)
+
+    print(f"Read {len(rows)} rows from {path}")
+    return rows
