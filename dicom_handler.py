@@ -1,186 +1,182 @@
-import pydicom as dicom
-from patientIDextractor import *
-from save_folder_tree import *
-from clean_text import *
-import numpy as np
-from pydicom.fileset import FileSet
+"""DICOM file handling: reading, sorting, matching patients, and organizing."""
 
+import os
+import numpy as np
+import pydicom as dicom
+
+from patientIDextractor import Extract
+from save_folder_tree import folder_tree
+from clean_text import clean_text
 
 
 class dicom_handler:
-    def __call__(self, *args, **kwargs):
-        return None;
+    """Read, match, and sort DICOM files into a structured folder hierarchy."""
 
     def unsortedlist(self, src):
+        """Walk the source directory and collect all file paths.
+
+        Parameters
+        ----------
+        src : str
+            Root directory to scan.
+
+        Returns
+        -------
+        list of str
+            Paths to all files found under src.
+        """
         unsortedList = []
-        directorylist=[]
         for root, dirs, files in os.walk(src):
-            # print("root", root)
-            # print("dirs", dirs)
-            # print("files", files)
-            for file in dirs:
-                directorylist.append(os.path.join(root, file))
             for file in files:
-                #         if ".file" in file:# exclude non-dicoms, good for messy folders
                 unsortedList.append(os.path.join(root, file))
 
-
-        print('%s files found.' % len(unsortedList))
-        # print("unsorted list-->", unsortedList)
-        # print("directory list-->", directorylist)
+        print(f"{len(unsortedList)} files found.")
         return unsortedList
 
     def search_patid_in_dir(self, directory, matched_patient_id):
-        print("search_patid_in_dir is working now")
+        """Search for a patient ID folder within the source directory.
 
-        for fname in directory:
-            # f = open(directory+matched_patient_id, 'r')
-            # f.close()
+        Parameters
+        ----------
+        directory : str
+            Parent directory to search in.
+        matched_patient_id : str
+            Patient ID to look for.
 
-            print("matched patient ID>>>>", matched_patient_id, directory)
-            if matched_patient_id in os.listdir(directory):
-                print("found string in file", os.listdir(directory))
-                # print("i should know swhats this", Path(directory + matched_patient_id))
-                list_of_matched_name = self.unsortedlist(directory + matched_patient_id)
-                return list_of_matched_name
-            else:
-                return None
-    def patient_names_extractor(self,patientIDlist, patientnameslist, dst):
-        # counter which searches the patient names for their respective IDs
-        print("patient_names_extractor called now")
-        list=[]
-        matches=[]
-        unmatches=[]
-        # patientnameslist=['a/1', 'b/2', 'c/3', 'd/4']
-        # patientIDlist= ['1','2']
+        Returns
+        -------
+        list of str or None
+            File paths within the matched folder, or None if not found.
+        """
+        if matched_patient_id in os.listdir(directory):
+            return self.unsortedlist(os.path.join(directory, matched_patient_id))
+        return None
+
+    def patient_names_extractor(self, patientIDlist, patientnameslist, dst):
+        """Match patient IDs to names from the database CSV.
+
+        Parameters
+        ----------
+        patientIDlist : list of str
+            Patient IDs extracted from directory names.
+        patientnameslist : list of list
+            Rows from the patient names CSV.
+        dst : str
+            Destination directory (unused, kept for interface compatibility).
+
+        Returns
+        -------
+        np.ndarray
+            Matched patient name/ID entries, shape (N, num_csv_columns).
+        list
+            List of all patient IDs processed.
+        """
+        matches = []
+        id_list = []
+
         for i in range(len(patientIDlist)):
+            pid = patientIDlist[i]
+            str_match = [s for s in patientnameslist if pid in s]
 
-            ls = patientIDlist[i]
-            # print ("ls",type(ls))
-            # print("patientnameslist", patientnameslist)
-            # print("patientIDlist", patientIDlist)
-
-
-        # print("patient_names_extractor running", "\n", "length of patientIDlist=", len(ls), '\n', "length of patientnameslist=", len(patientnameslist))
-            # # for i in range(len(patientIDlist)):
-            # print("patient_names_extractor running inside loop")
-            #
-
-            # for s in patientnameslist:
-            #     if ls in s:
-            #         str_match=s
-            str_match = [s for s in patientnameslist if ls in s]
-            for um in patientnameslist:
-                if ls not in um:
-                    str_unmatch = um
-                    if str_unmatch != []:
-                        # print("str_match found=", str_unmatch, "\n")
-                        unmatches.append(str_unmatch)
-            # str_unmatch = [um for um not in patientnameslist if ls in um]
-
-        # # folder_patient_name = str(str_match)
-            # print("str_match", str_match)
-
-
-            if str_match!= []:
-                print("str_match found=", str_match, "\n")
+            if str_match:
+                print(f"Match found for {pid}: {str_match}")
                 matches.append(str_match)
-            # list.append(patientIDlist[i])
+            id_list.append(pid)
 
-
-
-            list.append(patientIDlist[i])
-
-        print("matches=", matches, '\n', np.shape(matches))
-        print("unmatches=", unmatches, '\n', np.shape(unmatches))
-        # match_reshaped= matches
-
-
-        print("list=", list)
-        print("no. of matches=", len(matches))
-        return np.reshape(matches,(len(matches), 5)), list
-
+        print(f"Total matches: {len(matches)}")
+        num_cols = len(matches[0][0]) if matches else 5
+        return np.reshape(matches, (len(matches), num_cols)), id_list
 
     def str_match_handler(self, patientIDlist, patientnameslist, dst):
-            str_match, ls = self.patient_names_extractor(patientIDlist, patientnameslist, dst)
-            print("string match handler called....shape of str_match_handler==>", np.shape(str_match))
-            ls=[]
+        """Run patient name matching and return results.
 
-            if np.shape(str_match) != (0, 5):   #the shape depends on the number of columns present in the csv file. Since I have created an extra coulumn, it is (1,5). otherwise it would have been 4, 3 coulmns for name and 1 for patient ID
-                # print('type of str_match', type(str_match))     #<class 'numpy.ndarray'>
+        Parameters
+        ----------
+        patientIDlist : list of str
+        patientnameslist : list of list
+        dst : str
 
+        Returns
+        -------
+        np.ndarray or list
+            Matched entries, or empty list if no matches found.
+        """
+        str_match, _ = self.patient_names_extractor(patientIDlist, patientnameslist, dst)
 
-                print("str match(matched patient names and ids)","\n", str_match)
-                # return folder_patient_name
-                return str_match
-            else:
-                print("no matches found, check for duplicate entries....returning...", ls)
-
-
-            return ls
-
-    def comparator(self, folder_patient_name, matched_patient_id, src):
-
-        print("matched_patient_id-->", matched_patient_id)
-
-        matchid = matched_patient_id
-        print("len matchid", len(matched_patient_id))
-        capture_dir = [patid for patid in src if matchid in src]
-        print("captured pat id", capture_dir)
-        return capture_dir
+        if str_match.size > 0:
+            return str_match
+        else:
+            print("No matches found — check for duplicate entries in the CSV.")
+            return []
 
     def patient_info_segregator(self, dicom_loc):
+        """Extract patient and study metadata from a single DICOM file.
+
+        Parameters
+        ----------
+        dicom_loc : str
+            Path to the DICOM file.
+
+        Returns
+        -------
+        tuple
+            (dataset, path, filename, patientID, studyDate,
+             studyDescription, seriesDescription)
+        """
         ds = dicom.read_file(dicom_loc, force=True)
 
-        # get patient, study, and series information
-        # directory = FileSet(ds)
-        # print("directory==>", directory)
         patientID = clean_text(ds.get("PatientID", "NA"))
         studyDate = clean_text(ds.get("StudyDate", "NA"))
         studyDescription = clean_text(ds.get("StudyDescription", "NA"))
         seriesDescription = clean_text(ds.get("SeriesDescription", "NA"))
-        #     print(type(ds[0x0008, 0x103e])) #<class 'pydicom.dataelem.DataElement'>
-
-        # generate new, standardized file name
         modality = ds.get("Modality", "NA")
-        # studyInstanceUID = ds.get("StudyInstanceUID", "NA")
-
-        #     seriesInstanceUID = ds.get("SeriesInstanceUID","NA")
         instanceNumber = str(ds.get("InstanceNumber", "0"))
-        fileName = modality + "." + seriesDescription + "." + instanceNumber + '.dcm'
-        #     fileName = modality + "." + seriesDescription + "." + instanceNumber + .dcm
-        # print("filename-", fileName)
+
+        fileName = f"{modality}.{seriesDescription}.{instanceNumber}.dcm"
 
         return ds, dicom_loc, fileName, patientID, studyDate, studyDescription, seriesDescription
 
     def dicom(self, unsortedList, patientIDlist, patientID_dir, patientnameslist, src, dst):
+        """Main sorting pipeline: match patients and organize DICOM files.
 
+        Parameters
+        ----------
+        unsortedList : list of str
+            All file paths from the source directory.
+        patientIDlist : list of str
+            Patient IDs found in the source.
+        patientID_dir : list of str
+            Full paths to patient ID directories.
+        patientnameslist : list of list
+            Patient name database rows.
+        src : str
+            Source root directory.
+        dst : str
+            Destination output directory.
+        """
         folder_patient_name_list = self.str_match_handler(patientIDlist, patientnameslist, dst)
-        # print("folder_patient_name==>", folder_patient_name_list)
+
         for patient_name in folder_patient_name_list:
-            folder_patient_name = patient_name[0] + '_' + patient_name[1] + patient_name[2]
+            folder_patient_name = patient_name[0] + "_" + patient_name[1] + patient_name[2]
             matched_patient_id = patient_name[4]
-            print("foldername and matched patiient id=", folder_patient_name, matched_patient_id)
-            # self.comparator(folder_patient_name, matched_patient_id, src)
+            print(f"Processing: {folder_patient_name} (ID: {matched_patient_id})")
+
             matched_directory = self.search_patid_in_dir(src, matched_patient_id)
-            if matched_directory != None:
+
+            if matched_directory is not None:
                 for dicom_loc in matched_directory:
-                    print("I am reading from matched directory")
-                    ds, dicom_loc, fileName, patientID, studyDate, studyDescription, seriesDescription= self.patient_info_segregator(dicom_loc)
-                    folder_tree(ds, dst, folder_patient_name, dicom_loc, fileName, patientID, studyDate,
-                                studyDescription, seriesDescription)
-
-                    # print("dicom_loc, fileName, patientID, studyDate, studyDescription, seriesDescription=", dicom_loc, fileName, patientID, studyDate, studyDescription, seriesDescription)
-
+                    ds, dicom_loc, fileName, patientID, studyDate, studyDescription, seriesDescription = (
+                        self.patient_info_segregator(dicom_loc)
+                    )
+                    folder_tree(
+                        ds, dst, folder_patient_name, dicom_loc, fileName,
+                        patientID, studyDate, studyDescription, seriesDescription,
+                    )
             else:
                 for dicom_loc in unsortedList:
-                    ds, dicom_loc, fileName, patientID, studyDate, studyDescription, seriesDescription= self.patient_info_segregator(dicom_loc)
-                    print("dicom running for unsorted list where match is not found")
+                    ds, dicom_loc, fileName, patientID, studyDate, studyDescription, seriesDescription = (
+                        self.patient_info_segregator(dicom_loc)
+                    )
+                    print(f"No matched directory for {matched_patient_id}, processing from unsorted list.")
 
-                print("folder tree is being called now")
-            # if folder_patient_name != []:
-            #     folder_tree(ds, dst, folder_patient_name, dicom_loc, fileName, patientID, studyDate, studyDescription, seriesDescription)
-            #     break
-            # folder_patient_name_list = folder_patient_name_list[1:, :]
-
-        print('done')
+        print("Done.")
