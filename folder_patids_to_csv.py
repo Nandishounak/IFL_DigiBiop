@@ -1,33 +1,29 @@
+"""Export patient IDs from a directory listing to a CSV file."""
+
 import os
 import csv
 
 
-#testing with a directory
-def pat_id_to_csv(path):
-    #windows
-    # path = os.path.dirname("C:\\Users\\shoun\\OneDrive - TUM\\Downloads\\patientdata_yr_19\\19\\")
+def pat_id_to_csv(path, output_csv):
+    """List subdirectories in path and write them to a CSV file.
 
-    #linus-iflpc
-    # path=os.path.dirname("/mnt/projects/DeepProstateDB/Data/14/0001147395(multiple_times_of_scan)/README.txt")
+    Parameters
+    ----------
+    path : str
+        Directory whose subdirectories represent patient IDs.
+    output_csv : str
+        Path to the output CSV file.
 
-    print(path)
-    print(os.path.basename(path))
-
-    #windows
+    Returns
+    -------
+    list of str
+        The list of directory entries.
+    """
     my_list = os.listdir(path)
+    print(f"Found {len(my_list)} entries in {path}")
 
-    #linux-iflpc
-    # my_list = os.listdir("/mnt/projects/DeepProstateDB/Data/14/")
-    print('patlist->',my_list, '\n', type(my_list))
-
-    # sends the output to the csv file
-    #windows
-    with open('C:\\Users\\shoun\\OneDrive - TUM\\Projects\\outputs\\digibiop\\patientids.csv', 'w', newline='') as myfile:
+    with open(output_csv, "w", newline="") as myfile:
         wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
         wr.writerow(my_list)
-    print(my_list)
 
-    #linux
-    # with open('/mnt/HDD1/shounak/patientids.csv', 'w', newline='') as myfile:
-    #     wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
-    #     wr.writerow(my_list)
+    return my_list
