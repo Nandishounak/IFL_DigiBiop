@@ -1,35 +1,70 @@
-# from dicom_handler import *
-# from folder_patids_to_csv import *
-# from csv_reader import *
-from patientIDextractor import *
+"""
+DICOM Image Segregation Pipeline
+
+Sorts DICOM files by modality and scan type for each patient, then
+renames patient folders using a master CSV of patient names and IDs.
+
+Usage:
+    python main.py --source /path/to/dicom/root \
+                   --destination /path/to/output \
+                   --patient-db /path/to/patient_names.csv
+"""
+
+import argparse
+from patientIDextractor import pat_id_extractor, Extract
+from csv_reader import csv_read
+from dicom_handler import dicom_handler
 
 
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="Sort DICOM files by modality/scan type and assign patient names."
+    )
+    parser.add_argument(
+        "--source",
+        required=True,
+        help="Root directory containing patient DICOM folders.",
+    )
+    parser.add_argument(
+        "--destination",
+        required=True,
+        help="Output directory for the sorted folder structure.",
+    )
+    parser.add_argument(
+        "--patient-db",
+        required=True,
+        help="Path to the CSV file mapping patient IDs to names.",
+    )
+    return parser.parse_args()
 
-if __name__ == '__main__':
-    # source = "C:\\Users\\shoun\\OneDrive - TUM\\Downloads\\patientdata_yr_19\\19\\"
-    source = "/mnt/projects/DeepProstateDB/Data/19/"
-    #only for testing
-    # source = "C:\\Users\\shoun\\OneDrive - TUM\\Downloads\\patientdata_yr_19\\19\\0001074223\\"  # path from where the script reads the dicom files-->ideally a folder having
-                                                                                     # several subfolders of different IDs, but can also be tested with a single DICOM file
-    # destination = "C:\\Users\\shoun\\OneDrive - TUM\\Projects\\outputs\\digibiop\\"  # destination of the output where the sorted files will be stored
-    destination = "/mnt/HDD1/shounak/test_output/19/"
 
-    # given_list = "C:\\Users\\shoun\\OneDrive - TUM\\Projects\\outputs\\digibiop\\patientID_names_Database_unsorted.csv" #path to the database of the patient names
-    given_list = "/mnt/HDD1/shounak/Inputs/patientID_names_database_unsorted.csv"
+def main():
+    args = parse_args()
 
-    # patientIDlist = pat_id_to_csv(source)  #not reqd at the moment
-    patientIDlist, patientID_dir = pat_id_extractor(source)
-    patientnameslist = csv_read(given_list)  # reads the data from the patient database csv and stores in a variable list
+    # Extract patient IDs from source directory
+    patientIDlist, patientID_dir = pat_id_extractor(args.source)
+
+    # Read patient name database
+    patientnameslist = csv_read(args.patient_db)
 
     assert type(patientnameslist) == type(patientIDlist)
 
-    matches = []
-    # print(patientnameslist) #prints patient names and IDs from the database
-    print("patient ID list in the source folder",'\n', patientIDlist, '\n', type(patientIDlist))
-    print("EXTRACT IDs", Extract(patientnameslist), "\n","There are ", len(Extract(patientnameslist)), "patient IDs in the database")
+    print(f"Patient IDs in source folder: {patientIDlist}")
+    print(f"Patient IDs in database: {Extract(patientnameslist)}")
+    print(f"  {len(Extract(patientnameslist))} IDs in database")
+
+    # Sort and organize DICOM files
+    handler = dicom_handler()
+    unsortedList = handler.unsortedlist(args.source)
+    handler.dicom(
+        unsortedList,
+        patientIDlist,
+        patientID_dir,
+        patientnameslist,
+        args.source,
+        args.destination,
+    )
 
 
-    x = dicom_handler() #initiate the class dicom_handler()
-    unsortedList = x.unsortedlist(source)
-    # print('unsortedList', unsortedList)
-    x.dicom(unsortedList, patientIDlist, patientID_dir, patientnameslist, source, destination)
+if __name__ == "__main__":
+    main()
