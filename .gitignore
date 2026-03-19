@@ -1,8 +1,6 @@
-/dicom_reader.py
-/dicom_reader_1.py
-/.idea
-/0001073219
-/test_folder
 __pycache__/
 *.pyc
 .DS_Store
+.idea/
+.ipynb_checkpoints/
+*.csv
