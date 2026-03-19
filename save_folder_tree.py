@@ -1,40 +1,51 @@
+"""Create a nested folder structure and save sorted DICOM files."""
+
 import os
-import pydicom as dicom
 
 
-def folder_tree(ds, dst, folder_patient_name, dicom_loc, fileName, patientID, studyDate, studyDescription,
-                seriesDescription):
-    # save files to a 4-tier nested folder structure
-    print("folder tree running now")
-    print("filename-", fileName)
+def folder_tree(ds, dst, folder_patient_name, dicom_loc, fileName,
+                patientID, studyDate, studyDescription, seriesDescription):
+    """Save a DICOM file into a structured folder hierarchy.
 
-    # print("fileName, patientID, studyDate, studyDescription, seriesDescription=", "\n", fileName,
-    #       patientID, studyDate, studyDescription, seriesDescription)
+    Creates the directory structure:
+        dst / folder_patient_name / patientID / studyDate / studyDescription / seriesDescription /
 
-    # ds = dicom.read_file(dicom_loc, force=True)
-    # if os.path.exists(os.path.join(dst, folder_patient_name, "na", "na", "na", "na", "NA.na.0.dcm"))==True:
-    #     pass
-    if patientID=="na" or studyDate=="na" or studyDescription=="na" or seriesDescription=="na":
-        print("i check this loop")
+    Parameters
+    ----------
+    ds : pydicom.Dataset
+        The loaded DICOM dataset.
+    dst : str
+        Root destination directory.
+    folder_patient_name : str
+        Patient name string for the top-level folder.
+    dicom_loc : str
+        Original path to the DICOM file.
+    fileName : str
+        Standardized output filename (modality.series.instance.dcm).
+    patientID : str
+        Cleaned patient ID.
+    studyDate : str
+        Cleaned study date.
+    studyDescription : str
+        Cleaned study description.
+    seriesDescription : str
+        Cleaned series description.
+
+    Returns
+    -------
+    None or result of ds.save_as()
+        None if metadata fields are missing ("na"), otherwise the save result.
+    """
+    # Skip files with missing metadata
+    if "na" in (patientID, studyDate, studyDescription, seriesDescription):
         return None
-    elif patientID=="na" and studyDate=="na" and studyDescription=="na" and seriesDescription=="na":
-        print("i check this loop")
-        return None
-    else:
 
-        if not os.path.exists(os.path.join(dst, folder_patient_name)):
-            os.makedirs(os.path.join(dst, folder_patient_name))
+    # Build the nested directory path
+    target_dir = os.path.join(
+        dst, folder_patient_name, patientID,
+        studyDate, studyDescription, seriesDescription,
+    )
+    os.makedirs(target_dir, exist_ok=True)
 
-        if not os.path.exists(os.path.join(dst, folder_patient_name, patientID)):
-            os.makedirs(os.path.join(dst, folder_patient_name, patientID))
-        if not os.path.exists(os.path.join(dst, folder_patient_name, patientID, studyDate)):
-            os.makedirs(os.path.join(dst, folder_patient_name, patientID, studyDate))
-        if not os.path.exists(os.path.join(dst, folder_patient_name, patientID, studyDate, studyDescription)):
-            os.makedirs(os.path.join(dst, folder_patient_name, patientID, studyDate, studyDescription))
-        if not os.path.exists(
-                os.path.join(dst, folder_patient_name, patientID, studyDate, studyDescription, seriesDescription)):
-            os.makedirs(os.path.join(dst, folder_patient_name, patientID, studyDate, studyDescription, seriesDescription))
-            # print('Saving out file: %s - %s - %s - %s - %s.' % (folder_patient_name, patientID, studyDate, studyDescription, seriesDescription))
-            # else:   os.makedirs(os.path.join(dst, folder_patient_name, patientID, studyDate, studyDescription, seriesDescription))
-        print('Saving out file: %s - %s - %s - %s - %s.' % (folder_patient_name, patientID, studyDate, studyDescription, seriesDescription))
-        return ds.save_as(os.path.join(dst, folder_patient_name, patientID, studyDate, studyDescription, seriesDescription, fileName))
+    print(f"Saving: {folder_patient_name} / {patientID} / {studyDate} / {studyDescription} / {seriesDescription}")
+    return ds.save_as(os.path.join(target_dir, fileName))
