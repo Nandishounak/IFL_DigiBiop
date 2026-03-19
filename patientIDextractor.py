@@ -1,81 +1,54 @@
+"""Extract patient IDs from a directory structure."""
+
 import os
-from csv_reader import *
-from operator import itemgetter
-from clean_text import *
-from dicom_handler import *
-from folder_patids_to_csv import *
 import glob
+from operator import itemgetter
 
 
 def Extract(lst):
-    list(map(itemgetter(0), lst))  # for first element extraction
-    last_element = [item[-1] for item in lst]  # for last element extraction
-    return last_element  # return the first line for first element extraction
+    """Extract the last element from each sublist (typically the patient ID).
+
+    Parameters
+    ----------
+    lst : list of list
+        Rows from the patient names CSV.
+
+    Returns
+    -------
+    list
+        Last element of each row.
+    """
+    return [item[-1] for item in lst]
 
 
 def pat_id_extractor(path):
-    pat_id_list = []
-    store_dir_patids = []
+    """Extract patient IDs from subdirectory names.
 
-    for file in os.listdir(path):
-        d = os.path.join(path, file)
-        if os.path.isdir(d):
-            # print(d)
-            x = d.split(os.sep)
-            # print(x[-1])  #returns the patient IDs
-            pat_id_list.append(x[-1])
-    print("there are",len(pat_id_list), "ids in this source path")
-    store_dir_patids = glob.glob(path + os.sep + '*')
+    Parameters
+    ----------
+    path : str
+        Root directory containing one subdirectory per patient ID.
+
+    Returns
+    -------
+    pat_id_list : list of str
+        Patient IDs (subdirectory names).
+    store_dir_patids : list of str
+        Full paths to each patient subdirectory.
+    """
+    pat_id_list = []
+
+    for entry in os.listdir(path):
+        full_path = os.path.join(path, entry)
+        if os.path.isdir(full_path):
+            pat_id_list.append(entry)
+
+    print(f"Found {len(pat_id_list)} patient IDs in source path")
+    store_dir_patids = glob.glob(os.path.join(path, "*"))
 
     return pat_id_list, store_dir_patids
 
 
-# to flatten list in a list into a single list
-def flatten(l):
-    return [item for sublist in l for item in sublist]
-
-    # for it in os.scandir(path):
-    #     if it.is_dir():
-    #         print(it.path)
-    # print(type(it))
-
-
-if __name__ == '__main__':
-
-    ################################ F O R   W I N D O W S ###############################################
-    # source = "C:\\Users\\shoun\\OneDrive - TUM\\Downloads\\patientdata_yr_19\\19\\"
-    # #only for testing
-    # # source = "C:\\Users\\shoun\\OneDrive - TUM\\Downloads\\patientdata_yr_19\\19\\0001074223\\"  # path from where the script reads the dicom files-->ideally a folder having
-    #                                                                                  # several subfolders of different IDs, but can also be tested with a single DICOM file
-    # destination = "C:\\Users\\shoun\\OneDrive - TUM\\Projects\\outputs\\digibiop\\"  # destination of the output where the sorted files will be stored
-    #
-    # given_list = "C:\\Users\\shoun\\OneDrive - TUM\\Projects\\outputs\\digibiop\\patientID_names_Database_unsorted.csv" #path to the database of the patient names
-
-    ##################### F O R   I F L P C  ##############################################################
-
-    source = "//mnt//projects//DeepProstateDB//Data//19//"
-    destination = "/mnt/HDD1/shounak/OUTPUT_SEPT/"  # destination of the output where the sorted files will be stored
-    given_list = "/mnt/HDD1/shounak/Inputs/patientID_names_database_unsorted.csv" #path to the database of the patient names
-
-    ######################################################################################################
-
-
-
-
-
-# patientIDlist = pat_id_to_csv(source)  #not reqd at the moment
-    patientIDlist, patientID_dir = pat_id_extractor(source)
-    patientnameslist = csv_read(given_list)  # reads the data from the patient database csv and stores in a variable list
-
-    assert type(patientnameslist) == type(patientIDlist)
-
-    matches = []
-    # print(patientnameslist) #prints patient names and IDs from the database
-    print("patient ID list in the source folder",'\n', patientIDlist, '\n', type(patientIDlist))
-    print("EXTRACT IDs", Extract(patientnameslist), "\n","There are ", len(Extract(patientnameslist)), "patient IDs in the database")
-
-
-    x = dicom_handler() #initiate the class dicom_handler()
-    unsortedList = x.unsortedlist(source)
-    # print('unsortedList', unsortedList)
-    x.dicom(unsortedList, patientIDlist, patientID_dir, patientnameslist, source, destination)
+def flatten(lst):
+    """Flatten a list of lists into a single list."""
+    return [item for sublist in lst for item in sublist]
